@@ -24,10 +24,12 @@
   </div>
   <div class="title-wrapper">
     <div class="container">
-      <img src="/assets/images/logo.png" class="pull-left logo" alt="The Will Will Web">
+      <img [src]="imgsrc" class="pull-left logo"
+           [title]="subtitle"
+           [attr.myname]="sitename">
       <div class="pull-left">
       <h1><a href="http://blog.miniasp.com/">{{ sitename }}</a></h1>
-        <h3>記載著 Will 在網路世界的學習心得與技術分享</h3>
+        <h3 [innerHTML]="subtitle"></h3>
       </div>
       <app-social-icons></app-social-icons>
     </div>
