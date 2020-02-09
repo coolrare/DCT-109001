@@ -31,10 +31,15 @@
            [attr.myname]="sitename"
            (click)="changeTitle($event)">
       <div class="pull-left">
-        <h1><a href="http://blog.miniasp.com/">{{ sitename }}</a></h1>
-        <h3 [innerHTML]="subtitle"></h3>
+
+        <!-- [ngStyle]="{'font-size': fontSize + 'px' }" -->
+        <!-- [ngClass]="{'highlight': fontSize % 2 == 0 }" -->
+
+        <h1 [style.font-size.px]="fontSize"
+          (wheel)="changeSize($event)"><a href="http://blog.miniasp.com/">{{ sitename }}</a></h1>
+        <h3 [innerHTML]="subtitle" [class.highlight]="fontSize % 2 == 0"></h3>
       </div>
-      <app-social-icons *ngIf="showIcons"></app-social-icons>
+      <app-social-icons  *ngIf="showIcons"></app-social-icons>
     </div>
   </div>
 </header>
