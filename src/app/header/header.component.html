@@ -23,7 +23,7 @@
     </div>
   </div>
   <div class="title-wrapper">
-    <div class="container">
+    <div class="container" (mouseover)="showIcons=true" (mouseleave)="showIcons=false">
       <img [src]="imgsrc" class="pull-left logo"
            [title]="subtitle"
            [attr.myname]="sitename"
@@ -32,7 +32,7 @@
       <h1><a href="http://blog.miniasp.com/">{{ sitename }}</a></h1>
         <h3 [innerHTML]="subtitle"></h3>
       </div>
-      <app-social-icons></app-social-icons>
+      <app-social-icons *ngIf="showIcons"></app-social-icons>
     </div>
   </div>
 </header>
