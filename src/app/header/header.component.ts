@@ -38,6 +38,8 @@ export class HeaderComponent implements OnInit {
     } else {
       this.fontSize--;
     }
+
+    evt.preventDefault();
   }
 
 }
