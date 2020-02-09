@@ -21,8 +21,11 @@ export class HeaderComponent implements OnInit {
     }, 2000);
   }
 
-  changeTitle() {
-    this.sitename += '！';
+  changeTitle(evt: MouseEvent) {
+    console.log(evt);
+    if (evt.ctrlKey) {
+      this.sitename += '！';
+    }
   }
 
 }
