@@ -19,4 +19,8 @@ export class HeaderComponent implements OnInit {
     }, 2000);
   }
 
+  changeTitle() {
+    this.sitename += '！';
+  }
+
 }
