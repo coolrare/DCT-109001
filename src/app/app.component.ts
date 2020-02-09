@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { DataService } from './data.service';
+import { Article } from './Article';
 
 @Component({
   selector: 'app-root',
@@ -11,24 +12,12 @@ export class AppComponent implements OnInit {
 
   data: Article[];
 
-  constructor(private http: HttpClient) {
+  constructor(private datasvc: DataService) {
   }
 
   ngOnInit(): void {
-    this.http.get<Article[]>('/api/articles.json')
-      .subscribe((value) => {
+    this.datasvc.load().subscribe((value) => {
         this.data = value;
       });
   }
-}
-
-export interface Article {
-  id: number;
-  href: string;
-  title: string;
-  date: string;
-  author: string;
-  category: string;
-  'category-link': string;
-  summary: string;
 }
