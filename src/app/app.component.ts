@@ -9,15 +9,26 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent implements OnInit {
   keyword = 'demo1';
 
-  data: any;
+  data: Article[];
 
   constructor(private http: HttpClient) {
   }
 
   ngOnInit(): void {
-    this.http.get('/api/articles.json')
+    this.http.get<Article[]>('/api/articles.json')
       .subscribe((value) => {
         this.data = value;
       });
   }
+}
+
+export interface Article {
+  id: number;
+  href: string;
+  title: string;
+  date: string;
+  author: string;
+  category: string;
+  'category-link': string;
+  summary: string;
 }
