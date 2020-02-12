@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -9,8 +9,9 @@ export class HeaderComponent implements OnInit {
 
   sitename = 'Hello World';
 
-  @Input()
-  subtitle = '';
+  @Input() subtitle = '';
+
+  @Output() logoclick = new EventEmitter<string>();
 
   sitelogo = '/assets/images/logo.png';
 
@@ -30,6 +31,7 @@ export class HeaderComponent implements OnInit {
     console.log(evt);
     if (evt.ctrlKey) {
       this.sitename += '！';
+      this.logoclick.emit(this.sitename);
     }
   }
 

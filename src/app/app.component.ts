@@ -20,4 +20,8 @@ export class AppComponent implements OnInit {
         this.data = value;
       });
   }
+
+  headerClickLogo(str: string) {
+    this.keyword = str;
+  }
 }
