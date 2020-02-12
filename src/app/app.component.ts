@@ -9,7 +9,7 @@ import { Article } from './Article';
 })
 export class AppComponent implements OnInit {
   keyword = 'demo1';
-
+  subtitle = '記載著 Will 在網路世界的學習心得與技術分享';
   data: Article[];
 
   constructor(private datasvc: DataService) {
